@@ -38,7 +38,7 @@
 
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="310dp"
         android:numColumns="3"
         android:paddingHorizontal="6dp"
         android:id="@+id/movies_catalog"
@@ -75,7 +75,7 @@
 
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="310dp"
         android:numColumns="3"
         android:paddingHorizontal="6dp"
         android:id="@+id/series_catalog"
