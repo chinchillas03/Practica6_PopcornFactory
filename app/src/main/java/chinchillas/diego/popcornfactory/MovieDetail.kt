@@ -48,6 +48,7 @@ class MovieDetail : AppCompatActivity() {
 
                 intent.putExtra("movie", id)
                 intent.putExtra("name", titleB)
+                intent.putExtra("image", image.id)
 
                 this.startActivity(intent)
             }

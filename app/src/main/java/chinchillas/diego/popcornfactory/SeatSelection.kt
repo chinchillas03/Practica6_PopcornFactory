@@ -1,5 +1,6 @@
 package chinchillas.diego.popcornfactory
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioGroup
@@ -17,11 +18,13 @@ class SeatSelection : AppCompatActivity() {
 
         val title : TextView = findViewById(R.id.titleSeats)
         var posMovie = -1
-
+        var image = 0
+        var idSeat = 0
         val bundle = intent.extras
 
         if (bundle!=null){
             title.setText(bundle.getString("name"))
+            image = bundle.getInt("image")
             posMovie = bundle.getInt("id")
         }
 
@@ -31,8 +34,13 @@ class SeatSelection : AppCompatActivity() {
             //TODO añadir logica para reservar el lugar seleccionado por el ususario
             //Hacer una nueva actividad donde se vea el resumen de la compra es decir que se agregue el nombre del cliente y se vea el asiento que se selecciono
 
-            Toast.makeText(this, "Enjoy de movie", Toast.LENGTH_LONG).show()
+            val intent : Intent = Intent(this, SelectionClient::class.java)
 
+            intent.putExtra("name_movie", title.text.toString())
+            intent.putExtra("id_seat", idSeat.toString())
+            intent.putExtra("image", image)
+
+            this.startActivity(intent)
         }
 
         val row1 : RadioGroup = findViewById(R.id.row1)
@@ -46,6 +54,7 @@ class SeatSelection : AppCompatActivity() {
                 row3.clearCheck()
                 row4.clearCheck()
                 row1.check(checkedId)
+                idSeat = checkedId
             }
         }
 
@@ -55,6 +64,7 @@ class SeatSelection : AppCompatActivity() {
                 row3.clearCheck()
                 row4.clearCheck()
                 row2.check(checkedId)
+                idSeat = checkedId
             }
         }
 
@@ -64,6 +74,7 @@ class SeatSelection : AppCompatActivity() {
                 row2.clearCheck()
                 row4.clearCheck()
                 row3.check(checkedId)
+                idSeat = checkedId
             }
         }
 
@@ -73,6 +84,7 @@ class SeatSelection : AppCompatActivity() {
                 row2.clearCheck()
                 row3.clearCheck()
                 row4.check(checkedId)
+                idSeat = checkedId
             }
         }
 
